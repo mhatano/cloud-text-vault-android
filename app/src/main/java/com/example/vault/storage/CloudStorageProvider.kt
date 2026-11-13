@@ -172,7 +172,7 @@ class GoogleDriveStorageProvider(
     }
 
     private fun createNewFile(accessToken: String, encryptedBytes: ByteArray) {
-        val boundary = "===VaultBoundary_${UUID.randomUUID()}"
+        val boundary = "VaultBoundary_${UUID.randomUUID().toString().replace("-", "")}"
         val url = "$uploadApiUrl?uploadType=multipart"
 
         val metadataObj = buildJsonObject {
