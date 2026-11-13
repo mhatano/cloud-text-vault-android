@@ -295,11 +295,12 @@ fun VaultScreen(
         )
     }
 
-    if (showDeleteConfirm && uiState.selectedEntry != null) {
+    val entryToDelete = uiState.selectedEntry
+    if (showDeleteConfirm && entryToDelete != null) {
         AlertDialog(
             onDismissRequest = { showDeleteConfirm = false },
             title = { Text("削除確認") },
-            text = { Text("「${uiState.selectedEntry.displayLabel()}」を削除してもよろしいですか？") },
+            text = { Text("「${entryToDelete.displayLabel()}」を削除してもよろしいですか？") },
             confirmButton = {
                 Button(
                     onClick = {
